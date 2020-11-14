@@ -6,6 +6,7 @@ const xss = require('xss-clean');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
+const compression = require('compression');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
@@ -18,6 +19,8 @@ const app = express();
 // Set template engine
 app.set('view engine', 'pug');
 app.set('views', path.join(`${__dirname}`, 'views'));
+
+app.use(compression());
 
 // Serving static files
 app.use(express.static('./public'));

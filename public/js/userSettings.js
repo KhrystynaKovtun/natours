@@ -2,7 +2,7 @@ import axios from 'axios';
 import { alert } from './alert'
 
 export const updateUserInfo = async (data, type) => {
-  const url = `http://127.0.0.1:8080/api/v1/users/${type === 'password' ? 'updateMyPassword' : 'updateMe'}`;
+  const url = `/api/v1/users/${type === 'password' ? 'updateMyPassword' : 'updateMe'}`;
   try {
     const res = await axios({
       method: 'patch',
